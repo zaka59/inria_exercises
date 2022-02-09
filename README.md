@@ -4,17 +4,18 @@
 
 ## LinkedList
 
+
 #### Class ALink
 
-This is a linked list with unit tests.
+This is a link( or a node).
 
 **Methods :**
 
-- nextlink - return the next node
-- nextlink: - set next node
+- nextlink - return the next link
+- nextlink: - set next link
 - value - return the nodes value
 - value: - set nodes value
-- clearLinks - remove reference to nextnode
+- clearLinks - remove reference to next link
 
 #### Class ALinkedList
 
