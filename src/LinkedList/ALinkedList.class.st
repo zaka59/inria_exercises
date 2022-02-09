@@ -9,32 +9,30 @@ Class {
 }
 
 { #category : #adding }
-ALinkedList >> add: aNode [
-	^ self addLast: aNode
+ALinkedList >> add: anObject [
+	"Add node to linkedlist"
+	^ self addLast: anObject
 ]
 
 { #category : #adding }
-ALinkedList >> addAll: collection [
-	collection do: [ :each | self add: each ]
-]
-
-{ #category : #adding }
-ALinkedList >> addLast: aNode [
-	| node |
-	node := aNode.
-	tail ifNotNil: [ tail nextNode: node ].
-	head ifNil: [ head := node ].
-	tail := node.
-	^ node
+ALinkedList >> addLast: anObject [
+	"Add node to end of linkedlist"
+	| link |
+	link := anObject.
+	tail ifNotNil: [ tail nextlink: link ].
+	head ifNil: [ head := link ].
+	tail := link.
+	^ link
 ]
 
 { #category : #converting }
-ALinkedList >> asArray [	
-	| arr cur|
+ALinkedList >> asArray [
+	"Return linkedlist as an orderedCollection"
+	| arr current|
 	arr := OrderedCollection new.
 	
-	cur := head.
-	[cur isNotNil] whileTrue: [ arr add: (cur value). cur :=  cur nextNode.].
+	current := head.
+	[current isNotNil] whileTrue: [ arr add: (current value). current :=  current nextlink.].
 	
 	^ arr
 ]
@@ -46,23 +44,20 @@ ALinkedList >> emptyCheck [
 ]
 
 { #category : #acccessing }
-ALinkedList >> first [	
+ALinkedList >> first [
+	"Return first element on linkedlist"
 	self emptyCheck.
 	^ head value
 ]
 
 { #category : #testing }
 ALinkedList >> isEmpty [
+	"Check if linkedlist is empty"
 	^ head isNil and: [ tail isNil ]
-]
-
-{ #category : #acccessing }
-ALinkedList >> last [	
-	self emptyCheck.
-	^ tail value
 ]
 
 { #category : #removing }
 ALinkedList >> removeAll [
+	"Empty the linkedlist"
 	head := tail := nil
 ]
