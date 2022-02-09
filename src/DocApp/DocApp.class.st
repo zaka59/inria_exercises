@@ -24,8 +24,8 @@ addLibrary: JQUiDeploymentLibrary
 
 { #category : #accessing }
 DocApp >> description [
-	<webResource: #html>
-	^ '<div class="Doc"> <h2>',(self theClass  asString ),'</h2> <p>', (theClass comment), '<p></div>'
+	theClass asClassIfAbsent: [^'Class not found.']. 
+	^ theClass asClass comment
 ]
 
 { #category : #accessing }
@@ -34,6 +34,6 @@ DocApp >> theClass [
 ]
 
 { #category : #accessing }
-DocApp >> theClass: anObject [
-	theClass := anObject
+DocApp >> theClass: aString [
+	theClass := aString
 ]
