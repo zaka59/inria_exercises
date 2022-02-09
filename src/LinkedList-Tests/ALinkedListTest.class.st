@@ -43,22 +43,104 @@ ALinkedListTest >> testAddElementCorrectly [
 ]
 
 { #category : #adding }
+ALinkedListTest >> testFirstElement [
+	"test case to remove element"
+	
+	| node nodeb nodec| 
+	node := ALink new.
+	node value: 5.
+	nodeb := ALink new.
+	nodeb value: 6.
+	nodec := ALink new.
+	nodec value: 7.
+	
+	samplelist add: node.
+	samplelist add: nodeb.
+	samplelist add: nodec.
+	self assert: (samplelist asArray) size equals: 3.
+	self assert: samplelist first equals: 5.
+	
+]
+
+{ #category : #adding }
+ALinkedListTest >> testLastElement [
+	"test case to get the last element"
+	
+	| node nodeb nodec| 
+	node := ALink new.
+	node value: 5.
+	nodeb := ALink new.
+	nodeb value: 6.
+	nodec := ALink new.
+	nodec value: 7.
+	
+	samplelist add: node.
+	samplelist add: nodeb.
+	samplelist add: nodec.
+	self assert: (samplelist asArray) size equals: 3.
+	self assert: samplelist last equals: 7.
+	
+]
+
+{ #category : #adding }
 ALinkedListTest >> testRemoveAll [
 	"test case to remove element"
 	
-	| node node2 node3| 
+	| node nodeb nodec| 
 	node := ALink new.
 	node value: 5.
-	node2 := ALink new.
-	node2 value: 5.
-	node3 := ALink new.
-	node3 value: 5.
+	nodeb := ALink new.
+	nodeb value: 6.
+	nodec := ALink new.
+	nodec value: 7.
 	
 	samplelist add: node.
-	samplelist add: node2.
-	samplelist add: node2.
+	samplelist add: nodeb.
+	samplelist add: nodec.
 	self assert: (samplelist asArray) size equals: 3.
 	samplelist removeAll.
 	self assert: (samplelist asArray) size equals: 0.
+	
+]
+
+{ #category : #adding }
+ALinkedListTest >> testRemoveFirst [
+	"test case to remove element"
+	
+	| node nodeb nodec| 
+	node := ALink new.
+	node value: 5.
+	nodeb := ALink new.
+	nodeb value: 6.
+	nodec := ALink new.
+	nodec value: 7.
+	
+	samplelist add: node.
+	samplelist add: nodeb.
+	samplelist add: nodec.
+	self assert: (samplelist asArray) size equals: 3.
+	samplelist removeFirst.
+	self assert: samplelist first equals: 6.
+	
+]
+
+{ #category : #adding }
+ALinkedListTest >> testRemoveLast [
+	"test case to remove last node"
+	
+	| node nodeb nodec| 
+	node := ALink new.
+	node value: 5.
+	nodeb := ALink new.
+	nodeb value: 6.
+	nodec := ALink new.
+	nodec value: 7.
+	
+	samplelist add: node.
+	samplelist add: nodeb.
+	samplelist add: nodec.
+	self assert: (samplelist asArray) size equals: 3.
+	samplelist removeLast.
+	self assert: samplelist last equals: 6.
 	
 ]
