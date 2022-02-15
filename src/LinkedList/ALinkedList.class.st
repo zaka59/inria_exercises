@@ -15,6 +15,18 @@ ALinkedList >> add: anObject [
 ]
 
 { #category : #adding }
+ALinkedList >> add: anALink at: anInteger [ 
+	|old msize|
+	msize:= self asArray size.
+	(msize <= anInteger) | (anInteger <= 0)  
+	ifTrue: [ self add: anALink. ^'Added at tail' ]
+	ifFalse: [  old:= self get: anInteger-1.
+				   anALink nextlink:  old nextlink.
+				   old nextlink: anALink
+				  ].
+]
+
+{ #category : #adding }
 ALinkedList >> addLast: anObject [
 	"Add node to end of linkedlist"
 	| link |
@@ -48,6 +60,17 @@ ALinkedList >> first [
 	"Return first element on linkedlist"
 	self emptyCheck.
 	^ head value
+]
+
+{ #category : #acccessing }
+ALinkedList >> get: aNumber [
+	"Get a given node"
+	| next |
+	self emptyCheck.
+	(self asArray size) < aNumber ifTrue: [^nil].
+	next:= self head.
+	1 to: aNumber-1 do: [ :i | next:= next nextlink ].
+	^next 
 ]
 
 { #category : #adding }

@@ -16,6 +16,39 @@ ALinkedListTest >> setUp [
 ]
 
 { #category : #adding }
+ALinkedListTest >> testAddAt [
+	"test case to get the first element"
+	
+	| node nodeb nodec noded| 
+	node := ALink new.
+	node value: 5.
+	samplelist add: node.
+	nodeb := ALink new.
+	nodeb value: 6.
+	samplelist add: nodeb.
+	nodec := ALink new.
+	nodec value: 7.
+	samplelist add: nodec.
+	
+	self assert: (samplelist get: 1 ) equals: node.
+	self assert: (samplelist get: 2 ) equals: nodeb.
+	self assert: (samplelist get: 3 ) equals: nodec.
+	
+	noded := ALink new.
+	noded value: 8.
+	samplelist add: noded at: 2.
+	
+	self assert: (samplelist get: 1 ) equals: node.
+	self assert: (samplelist get: 2 ) equals: noded.
+	self assert: (samplelist get: 3 ) equals: nodeb.
+	
+	
+
+	
+	
+]
+
+{ #category : #adding }
 ALinkedListTest >> testAddElement [
 	"test case to add element"
 	
@@ -43,6 +76,53 @@ ALinkedListTest >> testAddElementCorrectly [
 ]
 
 { #category : #adding }
+ALinkedListTest >> testAddLast [
+	"test case to get the first element"
+	
+	| node nodeb nodec| 
+	node := ALink new.
+	node value: 5.
+	samplelist add: node.
+	self assert: samplelist last equals: 5.
+	nodeb := ALink new.
+	nodeb value: 6.
+	samplelist add: nodeb.
+	self assert: samplelist last equals: 6.
+	nodec := ALink new.
+	nodec value: 7.
+	samplelist add: nodec.
+	self assert: samplelist last equals: 7.
+	
+	
+]
+
+{ #category : #adding }
+ALinkedListTest >> testAsArray [
+	"test case to get linkedlist as an array"
+	
+	| node nodeb nodec | 
+	node := ALink new.
+	node value: 5.
+	samplelist add: node.
+	nodeb := ALink new.
+	nodeb value: 6.
+	samplelist add: nodeb.
+	nodec := ALink new.
+	nodec value: 7.
+	samplelist add: nodec.
+	
+	
+	self assert: (samplelist asArray at: 1 ) equals: 5.
+	self assert: (samplelist asArray at: 2 ) equals: 6.
+	self assert: (samplelist asArray at: 3 ) equals: 7.
+	
+	 
+
+	
+	
+]
+
+{ #category : #adding }
 ALinkedListTest >> testFirstElement [
 	"test case to remove element"
 	
@@ -59,6 +139,30 @@ ALinkedListTest >> testFirstElement [
 	samplelist add: nodec.
 	self assert: (samplelist asArray) size equals: 3.
 	self assert: samplelist first equals: 5.
+	
+]
+
+{ #category : #adding }
+ALinkedListTest >> testGetNode [
+	"test case to get the first element"
+	
+	| node nodeb nodec| 
+	node := ALink new.
+	node value: 5.
+	samplelist add: node.
+	nodeb := ALink new.
+	nodeb value: 6.
+	samplelist add: nodeb.
+	nodec := ALink new.
+	nodec value: 7.
+	samplelist add: nodec.
+	
+	self assert: (samplelist get: 1 ) equals: node.
+	self assert: (samplelist get: 2 ) equals: nodeb.
+	self assert: (samplelist get: 3 ) equals: nodec.
+	self assert: (samplelist get: 4 ) equals: nil.
+
+	
 	
 ]
 
