@@ -1,16 +1,16 @@
 Class {
-	#name : #WADocApp,
+	#name : #DAComponent,
 	#superclass : #WAComponent,
 	#category : #'DocApp-Components'
 }
 
-{ #category : #initialization }
-WADocApp class >> canBeRoot [
+{ #category : #testing }
+DAComponent class >> canBeRoot [
 	^ true
 ]
 
-{ #category : #initialization }
-WADocApp class >> initialize [
+{ #category : #testing }
+DAComponent class >> initialize [
 "self initialize"
 | app |
 app := WAAdmin register: self asApplicationAt: 'DocApp'.
@@ -20,15 +20,14 @@ addLibrary: JQUiDeploymentLibrary
 ]
 
 { #category : #rendering }
-WADocApp >> renderContentOn: html [ 
+DAComponent >> renderContentOn: html [ 
 |docApp|
-docApp := DocApp new.
+docApp := ClassDoc new.
 html form: [
 	html text: 'Class name : '. 
 	html textInput
-		callback: [ :value | docApp theClass:value ]. 
+		callback: [ :value | docApp name:value ]. 
 	html submitButton
-		callback: [ self inform: docApp description  ]; 
+		callback: [ self inform: docApp doc  ]; 
 		text: 'Submit'. ].
- 
 ]
