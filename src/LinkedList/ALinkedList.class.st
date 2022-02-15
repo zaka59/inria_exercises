@@ -15,7 +15,8 @@ ALinkedList >> add: anObject [
 ]
 
 { #category : #adding }
-ALinkedList >> add: anALink at: anInteger [ 
+ALinkedList >> add: anALink at: anInteger [ 	
+	"Add node at a given position of the linkedlist"
 	|old msize|
 	msize:= self asArray size.
 	(msize <= anInteger) | (anInteger <= 0)  
@@ -75,11 +76,13 @@ ALinkedList >> get: aNumber [
 
 { #category : #adding }
 ALinkedList >> head [
+   "get the head"
 	^ head
 ]
 
 { #category : #adding }
 ALinkedList >> head: aLink [
+	"set the head"
 	head := aLink
 ]
 

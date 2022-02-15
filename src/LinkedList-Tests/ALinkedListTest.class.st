@@ -77,7 +77,7 @@ ALinkedListTest >> testAddElementCorrectly [
 
 { #category : #adding }
 ALinkedListTest >> testAddLast [
-	"test case to get the first element"
+	"test case to add node as tail"
 	
 	| node nodeb nodec| 
 	node := ALink new.
@@ -124,7 +124,7 @@ ALinkedListTest >> testAsArray [
 
 { #category : #adding }
 ALinkedListTest >> testFirstElement [
-	"test case to remove element"
+	"test case to get the first element"
 	
 	| node nodeb nodec| 
 	node := ALink new.
@@ -144,7 +144,7 @@ ALinkedListTest >> testFirstElement [
 
 { #category : #adding }
 ALinkedListTest >> testGetNode [
-	"test case to get the first element"
+	"test case to get a node at a given position"
 	
 	| node nodeb nodec| 
 	node := ALink new.
