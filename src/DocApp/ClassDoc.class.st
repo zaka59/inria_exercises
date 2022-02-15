@@ -8,8 +8,8 @@ Class {
 }
 
 { #category : #accessing }
-ClassDoc >> doc [
-	name asClassIfAbsent: [^nil]. 
+ClassDoc >> doc [ 
+	name asClassIfAbsent: [^nil].
 	^ name asClass comment
 ]
 

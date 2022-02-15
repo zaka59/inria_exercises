@@ -36,13 +36,37 @@ main := DAClassComponent new.
 ]
 
 { #category : #rendering }
+DAppRootComponent >> main: aComponent [
+main := aComponent
+]
+
+{ #category : #rendering }
 DAppRootComponent >> renderContentOn: html [
 html render: main
+]
+
+{ #category : #rendering }
+DAppRootComponent >> style [
+^ '
+body {
+font: 10pt Arial, Helvetica, sans-serif, Times New Roman;
+}
+h1{
+	text-align: center;
+	margin-bottom: 40px;
+}
+form{
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+'
 ]
 
 { #category : #rendering }
 DAppRootComponent >> updateRoot: anHtmlRoot [
 super updateRoot: anHtmlRoot.
 anHtmlRoot beHtml5.
+anHtmlRoot stylesheet url: '/files/main.css'.
 anHtmlRoot title: 'DoccApp'.
 ]
